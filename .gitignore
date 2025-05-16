@@ -1,0 +1,22 @@
+# Ignorar la carpeta node_modules
+node_modules/
+
+# Ignorar archivos de logs
+yarn-debug.log*
+yarn-error.log*
+npm-debug.log*
+
+# Ignorar archivos de entorno
+.env
+.env.*
+
+# Ignorar directorios de build y dist
+build/
+dist/
+
+# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar mapas de sourcemaps
+*.map
