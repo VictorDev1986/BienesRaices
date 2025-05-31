@@ -144,7 +144,7 @@ require 'includes/funciones.php';
 
     <div class="contenedor seccion seccion-inferior">
         <section class="blog">
-            <h3>Nuestro Blog</h3>
+            <h2>Nuestro Blog</h2>
 
             <article class="entrada-blog">
                 <div class="imagen">
