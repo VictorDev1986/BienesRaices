@@ -31,10 +31,10 @@ require 'includes/funciones.php';
 
         <div class="contenedor-anuncios">
             <div class="anuncio">
-                <picture>
+                <picture style="border-radius: inherit; overflow: hidden; display: block;">
                     <source srcset="build/img/anuncio1.webp" type="image/webp">
                     <source srcset="build/img/anuncio1.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
+                    <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio" style="width: 100%; height: 100%; object-fit: cover;">
                 </picture>
 
                 <div class="contenido-anuncio">

@@ -1,5 +1,5 @@
 .seccion {
-    margin-top: calc($separacion / 2);
+    margin-top: calc($separacion * 1.7);
     margin-bottom: calc($separacion / 2);
 }
 .contenido-centrado {
@@ -9,4 +9,8 @@
 .alinear-derecha {
     display: flex;
     justify-content: flex-end;
+}
+
+img {
+    border-radius: 1.2rem;
 }

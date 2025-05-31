@@ -43,5 +43,14 @@
         }
     }
 
-  
+    h1,
+    h2,
+    h3,
+    h4 {
+        background: none !important;
+        -webkit-background-clip: initial !important;
+        -webkit-text-fill-color: $gris !important;
+        background-clip: initial !important;
+        color: $gris !important;
+    }
 }

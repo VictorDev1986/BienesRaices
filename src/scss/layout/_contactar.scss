@@ -16,7 +16,11 @@
     h2 {
         font-size: 4rem;
         font-weight: $black;
-        color: $blanco;
+        color: $blanco !important;
+        background: none !important;
+        -webkit-background-clip: initial !important;
+        -webkit-text-fill-color: $blanco !important;
+        background-clip: initial !important;
     }
     p {
         font-size: 1.8rem;

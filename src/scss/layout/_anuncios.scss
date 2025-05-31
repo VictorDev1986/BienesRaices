@@ -8,6 +8,7 @@
     background-color: lighten($gris, 5);
     border: 1px solid darken($gris, 10);
     margin-bottom: 2rem;
+    border-radius: 1.2rem;
 
     .contenido-anuncio {
         padding: 2rem;
@@ -37,9 +38,22 @@
         img {
             flex:  0 0 3rem;
             margin-right: 1rem;
+        
         }
         p {
             font-weight: $black;
         }
     }
+}
+
+.anuncio picture {
+    display: block;
+    border-radius: inherit;
+    overflow: hidden;
+}
+.anuncio picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
