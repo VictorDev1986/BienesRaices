@@ -27,9 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // var_dump($_POST);
     // echo "</pre>";
 //
-    echo "<pre>";
-    var_dump($_FILES);
-    echo "</pre>";
+   // echo "<pre>";
+   // var_dump($_FILES);
+   // echo "</pre>";
 
     // Sanitizar los datos
     $titulo = mysqli_real_escape_string( $db, $_POST['titulo'] );           
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($resultado) {
             //Redireccionar al usuario
-            header('Location: /admin');
+            header('Location: /admin?resultado=1');
         }
     }
 }

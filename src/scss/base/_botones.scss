@@ -12,3 +12,12 @@
     @include boton($verde, inline-block);
     border-radius: 1.2rem;
 }
+
+.boton-rojo-block {
+    @include boton($rojo, block);
+    border-radius: 1.2rem;
+}
+.boton-amarillo-block {
+    @include boton($amarillo, block);
+    border-radius: 1.2rem;
+}

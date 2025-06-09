@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "gulp"
   },
-  "author": "Juan De la torre @codigoconjuan",
+  "author": "Victor Sanchez",
   "license": "ISC",
   "devDependencies": {
     "gulp-concat": "^2.6.1",
