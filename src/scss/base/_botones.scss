@@ -16,8 +16,10 @@
 .boton-rojo-block {
     @include boton($rojo, block);
     border-radius: 1.2rem;
+    width: 100%;
 }
 .boton-amarillo-block {
     @include boton($amarillo, block);
     border-radius: 1.2rem;
+    width: 100%;
 }

@@ -1,12 +1,16 @@
 .alerta {
-    padding: .5rem;
+    padding: 1rem;
     text-align: center;
     color: $blanco;
-    font-weight: bold;
+    font-weight: $bold;
     text-transform: uppercase;
     margin: 1rem 0;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
 
+    @include tablet {
+        font-size: 1.6rem;
+    }
 
     &.error {
         background-color: $rojo;
@@ -17,22 +21,86 @@
     }
 }
 
-table.propiedades {
-    margin-top: 4rem;
+.contenedor-tabla {
     width: 100%;
-    border-spacing: 0;
+    overflow-x: auto;
+    margin-top: 4rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+table.propiedades {
+    width: 100%;
+    min-width: 60rem; /* Ancho mínimo para mantener la legibilidad */
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 1.4rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+
+    @include tablet {
+        font-size: 1.6rem;
+    }
 
     thead {
         background-color: $verde;
-        border-radius: 4rem;
-
         th {
             color: $blanco;
             padding: 1.5rem;
-        } // Cierra th
-    } // Cierra thead
-} // Cierra table.propiedades
+            text-align: left;
+            font-weight: $bold;
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid #e3e3e3;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #f9f9f9;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+
+        td {
+            padding: 1.2rem 1.5rem;
+            vertical-align: middle;
+            
+            @include telefono {
+                padding: 1rem;
+            }
+        }
+    }
+}
 
 .imagen-tabla {
     width: 10rem;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.botones-accion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    a {
+        display: block;
+        text-align: center;
+        margin: 0.5rem 0;
+        padding: 0.8rem 1rem;
+        font-size: 1.2rem;
+        @include telefono {
+            margin: 0.5rem;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.imagen-propiedad {
+    width: 20rem;
 }

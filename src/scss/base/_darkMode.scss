@@ -5,11 +5,15 @@
         color: $blanco;
     }
 
-    a, h1,h2,h3,h4  {
+    a,
+    h1,
+    h2,
+    h3,
+    h4 {
         color: $gris;
     }
 
-    .anuncio, 
+    .anuncio,
     .resumen-propiedad {
         background-color: $grisOscuro;
         border: 1px solid $grisOscuro;
@@ -17,24 +21,26 @@
         .precio {
             color: $verde;
         }
+
         .icono {
             filter: invert(100%);
         }
     }
-    
+
 
     .texto-nosotros blockquote {
         color: $blanco;
     }
-   
+
     .formulario {
+
         label,
         legend,
         p {
             color: $gris;
         }
 
-        input:not([type="submit"]), 
+        input:not([type="submit"]),
         textarea,
         select {
             background-color: $grisOscuro;
@@ -52,5 +58,32 @@
         -webkit-text-fill-color: $gris !important;
         background-clip: initial !important;
         color: $gris !important;
+    }
+
+    /* Tablas en modo oscuro */
+    table {
+        color: $blanco;
+
+        th,
+        td {
+            color: $blanco;
+            border-color: lighten($grisOscuro, 10%);
+        }
+
+        thead {
+            background-color: darken($verde, 10%);
+
+            th {
+                color: $blanco;
+            }
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: lighten($grisOscuro, 5%);
+        }
+
+        tbody tr:hover {
+            background-color: lighten($grisOscuro, 8%);
+        }
     }
 }
