@@ -4,10 +4,25 @@
 require '../includes/config/database.php';
 $db = conectarDB();
 
-//Escribir el query
-$query = "SELECT * FROM propiedades";
+// Número de propiedades por página
+$por_pagina = 4;
 
-//Consultar la base de datos
+// Obtener la página actual o establecerla en 1 por defecto
+$pagina_actual = filter_var($_GET['pagina'] ?? 1, FILTER_VALIDATE_INT);
+if(!$pagina_actual || $pagina_actual < 1) {
+    $pagina_actual = 1;
+}
+
+// Calcular el offset
+$offset = ($pagina_actual - 1) * $por_pagina;
+
+// Consulta para obtener el total de propiedades
+$total_propiedades = mysqli_query($db, "SELECT COUNT(*) as total FROM propiedades");
+$total_propiedades = mysqli_fetch_assoc($total_propiedades)['total'];
+$total_paginas = ceil($total_propiedades / $por_pagina);
+
+// Consulta para obtener las propiedades con paginación
+$query = "SELECT * FROM propiedades LIMIT {$por_pagina} OFFSET {$offset}";
 $resultadoConsulta = mysqli_query($db, $query);
 
 // muestra mensaje condicional 
@@ -95,6 +110,26 @@ incluirTemplate('header');
                 <?php endwhile; ?>
             </tbody>
         </table>
+        
+        <?php if($total_paginas > 1): ?>
+        <div class="paginacion">
+            <?php if($pagina_actual > 1): ?>
+                <a href="?pagina=<?php echo $pagina_actual - 1; ?>" class="boton boton-verde">&laquo; Anterior</a>
+            <?php endif; ?>
+            
+            <?php for($i = 1; $i <= $total_paginas; $i++): ?>
+                <?php if($i === $pagina_actual): ?>
+                    <span class="boton boton-verde pagina-actual"><?php echo $i; ?></span>
+                <?php else: ?>
+                    <a href="?pagina=<?php echo $i; ?>" class="boton boton-verde"><?php echo $i; ?></a>
+                <?php endif; ?>
+            <?php endfor; ?>
+            
+            <?php if($pagina_actual < $total_paginas): ?>
+                <a href="?pagina=<?php echo $pagina_actual + 1; ?>" class="boton boton-verde">Siguiente &raquo;</a>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
       </div>
     </main>
      

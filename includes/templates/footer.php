@@ -14,5 +14,8 @@
     </footer>
 
     <script src="/build/js/bundle.min.js"></script>
+    <?php if(strpos($_SERVER['REQUEST_URI'], '/admin/') !== false): ?>
+        <script src="/public/js/paginacion.js"></script>
+    <?php endif; ?>
 </body>
 </html>
