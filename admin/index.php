@@ -1,6 +1,5 @@
 <?php
 
-
 // Importar la conexion
 require '../includes/config/database.php';
 $db = conectarDB();
@@ -14,36 +13,35 @@ $resultadoConsulta = mysqli_query($db, $query);
 // muestra mensaje condicional 
 $resultado = $_GET['resultado'] ?? null ;
 
-
+// Eliminar propiedad
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $id = $_POST['id'];
-   $id = filter_var($id, FILTER_VALIDATE_INT);  
+   $id = filter_var($id, FILTER_VALIDATE_INT);
 
-   if ($id) {
-
-    // Eliminar el archivo 
-    $query = "SELECT imagen FROM propiedades WHERE id = " . $id;
+   if($id) {
+       
+    //Eliminar archivo
+    $query = "SELECT imagen FROM propiedades WHERE id = ${id}";
     $resultado = mysqli_query($db, $query);
     $propiedad = mysqli_fetch_assoc($resultado);
     unlink('../imagenes/' . $propiedad['imagen']);
-    exit;
-
-    // Eliminar la propiedad
-    $query = "DELETE FROM propiedades WHERE id = " . $id;
+    
+    //Eliminar propiedad
+    $query = "DELETE FROM propiedades WHERE id = ${id}";
     $resultado = mysqli_query($db, $query);
 
     if ($resultado) {
-        // Redireccionar al index
-        header('Location: /admin?resultado=1');
-    } 
-     
-   }
-
+        header('Location: /admin?resultado=3');
+    }
+   }  
 }
+
+
 
 // Incluye un template
 require '../includes/funciones.php';
- incluirTemplate('header');
+$inicio = false; // Para que no muestre la barra
+incluirTemplate('header');
 ?>
 
     <main class="contenedor seccion">
@@ -54,6 +52,10 @@ require '../includes/funciones.php';
     
         <?php elseif ( intval($resultado) === 2): ?>
             <p class="alerta exito">Propiedad Actualizada Correctamente</p>
+        <?php endif; ?>
+
+        <?php if ( intval($resultado) === 3): ?>
+            <p class="alerta exito">Propiedad Eliminada Correctamente</p>
         <?php endif; ?>
 
         <a href="/admin/propiedades/crear.php" class="boton boton-verde">Nueva propiedad</a>
@@ -81,12 +83,12 @@ require '../includes/funciones.php';
                     <td data-label="Precio">$<?php echo number_format($propiedad['precio']); ?></td>
                     <td data-label="Acciones">
                         <div class="botones-accion">
-
-                            <form method="POST" class="W-100">
+                        <a href="/admin/propiedades/actualizar.php?id=<?php echo $propiedad['id']; ?>" class="boton-accion boton-amarillo-block">Actualizar</a>
+                            <form method="POST" class="form-accion">
                                 <input type="hidden" name="id" value="<?php echo $propiedad['id']; ?>">
-                                <input type="submit" class="boton-rojo-block" value="Eliminar" name="eliminar">
+                                <input type="submit" class="boton-accion boton-rojo-block" value="Eliminar" name="eliminar">
                             </form>
-                            <a href="/admin/propiedades/actualizar.php?id=<?php echo $propiedad['id']; ?>" class="boton-amarillo-block">Actualizar</a>
+                           
                         </div>
                     </td>
                 </tr>

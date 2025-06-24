@@ -13,13 +13,51 @@
     border-radius: 1.2rem;
 }
 
+// Estilos para el contenedor de botones de acción
+.botones-accion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 15rem;
+    align-items: stretch;
+}
+
+// Estilos para el formulario de acción
+.form-accion {
+    width: 100%;
+    margin: 0;
+    display: block;
+}
+
+// Estilos para los botones de acción
+.boton-accion {
+    width: 100% !important;
+    min-height: 4.8rem; /* Altura mínima consistente */
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box !important;
+    padding: 1rem 2rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    font-size: 1.4rem !important;
+    line-height: 1.5 !important;
+    border: none !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none !important;
+    margin: 0 !important;
+}
+
 .boton-rojo-block {
     @include boton($rojo, block);
-    border-radius: 1.2rem;
-    width: 100%;
+    border-radius: 1.2rem !important;
+    width: 100% !important;
 }
+
 .boton-amarillo-block {
     @include boton($amarillo, block);
-    border-radius: 1.2rem;
-    width: 100%;
+    border-radius: 1.2rem !important;
+    width: 100% !important;
 }
