@@ -9,6 +9,7 @@
 <body>
     
     <header class="header <?php echo $inicio ? 'inicio' : ''; ?>">
+        
         <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="/">
@@ -30,5 +31,10 @@
                 </div>
                 
             </div> <!--.barra-->
+            
+            <?php if($inicio) : ?>
+                <h1 class="titulo-header">Encuentra la casa de tus sueños</h1>
+            <?php endif; ?>
+            </div>
         </div>
     </header>

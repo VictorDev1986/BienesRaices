@@ -52,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-
 // Incluye un template
 require '../includes/funciones.php';
 $inicio = false; // Para que no muestre la barra

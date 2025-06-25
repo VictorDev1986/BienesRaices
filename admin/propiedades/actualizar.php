@@ -39,15 +39,6 @@ $errores = [];
 // Ejecutar el codigo despues de que el usuario envie el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-
-    // echo "<pre>";
-    // var_dump($_POST);
-    // echo "</pre>";
-//
-   // echo "<pre>";
-   // var_dump($_FILES);
-   // echo "</pre>";
-
     // Sanitizar los datos
     $titulo = mysqli_real_escape_string( $db, $_POST['titulo'] );           
     $precio = mysqli_real_escape_string( $db,$_POST['precio'] );
