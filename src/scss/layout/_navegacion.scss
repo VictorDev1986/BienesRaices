@@ -46,6 +46,32 @@
     height: 0;
     transition: visibility .3s ease-in-out, opacity .5s linear, height .5s linear; 
 
+    .login-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--gris);
+        color: var(--blanco);
+        transition: background-color 0.3s ease;
+        margin-left: 1rem;
+        
+        &:hover {
+            background-color: var(--grisOscuro);
+            svg {
+                transform: scale(1.1);
+            }
+        }
+        
+        svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+    }
+
     @include tablet {
         display: flex;
         align-items: center;
